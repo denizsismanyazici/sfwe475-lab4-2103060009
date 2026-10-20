@@ -1,10 +1,11 @@
-import TaskCard from "./TaskCard";
+import TaskList from "./TaskList";
+import NewTaskInput from "./NewTaskInput";
 
 function App() {
   return (
     <>
-      <TaskCard title="Read Chapter 3" done={false} dueDate="2026-10-27" />
-      <TaskCard title="Build TaskCard" done={true} />
+      <NewTaskInput />
+      <TaskList />
     </>
   );
 }
