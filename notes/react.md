@@ -11,3 +11,7 @@ react uses the key to know which card is which. if we use the index and the list
 ## 3. Removing onChange
 
 when I removed onChange I couldnt type, nothing showed up in the box. value comes from text but nothing was changing text anymore so it stayed empty. console also gave a warning: value prop without onChange handler, so the field is read-only.
+
+## 4. The round trip of one click
+
+TaskBoard owns the tasks state. NewTaskInput asks for the change. when I click Add it calls onAddTask, which is handleAddTask from TaskBoard. it adds the task with setTasks and the new card shows up.

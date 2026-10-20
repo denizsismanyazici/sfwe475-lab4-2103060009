@@ -1,17 +1,29 @@
 import type { Task } from "./schemas";
+import type { Filter } from "./FilterBar";
 import TaskCard from "./TaskCard";
 
-const tasks: Task[] = [
-  { id: 1, title: "Read Chapter 3", done: false },
-  { id: 2, title: "Build TaskCard", done: true },
-  { id: 3, title: "Start TaskList", done: false },
-];
+type TaskListProps = {
+  tasks: Task[];
+  filter: Filter;
+  onToggleTask: (id: number) => void;
+};
 
-function TaskList() {
+function TaskList({ tasks, filter, onToggleTask }: TaskListProps) {
+  const shownTasks = tasks.filter((task) => {
+    if (filter === "done") return task.done;
+    if (filter === "open") return !task.done;
+    return true;
+  });
+
   return (
     <div>
-      {tasks.map((task) => (
-        <TaskCard key={task.id} title={task.title} done={task.done} />
+      {shownTasks.map((task) => (
+        <TaskCard
+          key={task.id}
+          title={task.title}
+          done={task.done}
+          onToggle={() => onToggleTask(task.id)}
+        />
       ))}
     </div>
   );
