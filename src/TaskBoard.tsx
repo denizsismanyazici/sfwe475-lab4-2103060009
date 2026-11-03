@@ -13,12 +13,20 @@ function TaskBoard() {
   const [filter, setFilter] = useState<Filter>("all");
 
   function loadTasks() {
+    const start = Date.now();
+
     simulateFetchTasks()
       .then((data) => {
-        setTasks(data);
-        setStatus(data.length === 0 ? "empty" : "success");
+        const wait = Math.max(0, 400 - (Date.now() - start));
+        setTimeout(() => {
+          setTasks(data);
+          setStatus(data.length === 0 ? "empty" : "success");
+        }, wait);
       })
-      .catch(() => setStatus("error"));
+      .catch(() => {
+        const wait = Math.max(0, 400 - (Date.now() - start));
+        setTimeout(() => setStatus("error"), wait);
+      });
   }
 
   useEffect(() => {
