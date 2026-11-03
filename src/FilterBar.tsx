@@ -12,19 +12,19 @@ function FilterBar({ filter, onFilterChange }: FilterBarProps) {
         onClick={() => onFilterChange("all")}
         style={{ fontWeight: filter === "all" ? "bold" : "normal" }}
       >
-        All
+        All tasks
       </button>
       <button
         onClick={() => onFilterChange("done")}
         style={{ fontWeight: filter === "done" ? "bold" : "normal" }}
       >
-        Done
+        Done tasks
       </button>
       <button
         onClick={() => onFilterChange("open")}
         style={{ fontWeight: filter === "open" ? "bold" : "normal" }}
       >
-        Open
+        Open tasks
       </button>
     </div>
   );

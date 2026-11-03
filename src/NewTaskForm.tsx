@@ -28,11 +28,13 @@ function NewTaskForm({ onAddTask }: NewTaskFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input value={title} onChange={(e) => setTitle(e.target.value)} />
+        <label htmlFor="title">Task title</label>
+        <input id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
         {errors.title && <p className="error">{errors.title[0]}</p>}
       </div>
       <div>
-        <input value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
+        <label htmlFor="dueDate">Due date</label>
+        <input id="dueDate" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
         {errors.dueDate && <p className="error">{errors.dueDate[0]}</p>}
       </div>
       <button type="submit">Add task</button>

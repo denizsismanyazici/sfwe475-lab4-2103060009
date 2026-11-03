@@ -10,3 +10,6 @@ empty means it worked but there is no tasks. error means it failed. they need to
 
 3
 if the data comes very fast the loading text shows for like 50ms and the screen just flashes, it looks like a bug. keeping it 400ms looks smoother and calmer. its a little slower but it feels better for the user.
+
+3
+I tried it without the mouse. tab went to task title and I typed test. enter adds the task right away, tab tab to add task and enter also works. shift tab goes back one box. everything worked.
